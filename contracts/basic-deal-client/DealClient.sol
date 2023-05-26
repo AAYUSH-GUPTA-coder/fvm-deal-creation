@@ -35,6 +35,11 @@ struct ProviderSet {
 // User request for this contract to make a deal. This structure is modelled after Filecoin's Deal
 // Proposal, but leaves out the provider, since any provider can pick up a deal broadcast by this
 // contract.
+
+
+/**
+ * @notice data needed to create deal
+ */
 struct DealRequest {
     bytes piece_cid;
     uint64 piece_size;
@@ -80,6 +85,7 @@ contract DealClient {
     address public constant DATACAP_ACTOR_ETH_ADDRESS =
         address(0xfF00000000000000000000000000000000000007);
 
+    /// @notice status of deal 
     enum Status {
         None,
         RequestSubmitted,
@@ -89,6 +95,9 @@ contract DealClient {
     }
 
     mapping(bytes32 => RequestIdx) public dealRequestIdx; // contract deal id -> deal index
+    /**
+     * @notice array to store all the deals request created
+     */
     DealRequest[] public dealRequests;
 
     mapping(bytes => RequestId) public pieceRequests; // commP -> dealProposalID
@@ -99,6 +108,7 @@ contract DealClient {
     event ReceivedDataCap(string received);
     event DealProposalCreate(bytes32 indexed id, uint64 size, bool indexed verified, uint256 price);
 
+    ///! @dev !!! can be removed as we want anyone to create deal
     address public owner;
 
     constructor() {
@@ -122,7 +132,26 @@ contract DealClient {
     }
 
     /**
-     * 
+     * @dev added by me
+     * @notice function to get the status of the data
+     * @param cid CID of data
+     */
+    function getPieceStatus(bytes calldata cid) public view returns (Status) {
+        return pieceStatus[cid];
+    }
+
+    /**
+     * @dev added by me
+     * @notice function to get the deal ID of the data
+     * @param cid CID of data
+     */
+    function getDealId(bytes calldata cid) public view returns (uint64) {
+        return pieceDeals[cid];
+    }
+
+    /**
+     * @notice function to create deal on FEVM
+     * @param deal deal data in DealRequest struct form
      */
     function makeDealProposal(DealRequest calldata deal) public returns (bytes32) {
         require(msg.sender == owner);
@@ -312,23 +341,7 @@ contract DealClient {
         return withdrawBalanceAmount;
     }
 
-    /**
-     * @dev added by me
-     * @notice function to get the status of the data
-     * @param cid CID of data
-     */
-    function getPieceStatus(bytes calldata cid) public view returns (Status) {
-        return pieceStatus[cid];
-    }
-
-    /**
-     * @dev added by me
-     * @notice function to get the deal ID of the data
-     * @param cid CID of data
-     */
-    function getDealId(bytes calldata cid) public view returns (uint64) {
-        return pieceDeals[cid];
-    }
+    
 
     function receiveDataCap(bytes memory params) internal {
         require(
