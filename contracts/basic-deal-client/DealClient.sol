@@ -17,8 +17,9 @@ import {FilAddresses} from "@zondax/filecoin-solidity/contracts/v0.8/utils/FilAd
 
 using CBOR for CBOR.CBORBuffer;
 
+///@notice function to store deal request ID
 struct RequestId {
-    bytes32 requestId;
+    bytes32 requestId; // requestId is randomly generated
     bool valid;
 }
 
@@ -32,10 +33,7 @@ struct ProviderSet {
     bool valid;
 }
 
-// User request for this contract to make a deal. This structure is modelled after Filecoin's Deal
-// Proposal, but leaves out the provider, since any provider can pick up a deal broadcast by this
-// contract.
-
+// User request for this contract to make a deal. This structure is modelled after Filecoin's Deal Proposal, but leaves out the provider, since any provider can pick up a deal broadcast by this contract.
 
 /**
  * @notice data needed to create deal
@@ -85,7 +83,7 @@ contract DealClient {
     address public constant DATACAP_ACTOR_ETH_ADDRESS =
         address(0xfF00000000000000000000000000000000000007);
 
-    /// @notice status of deal 
+    /// @notice status of deal
     enum Status {
         None,
         RequestSubmitted,
@@ -95,9 +93,8 @@ contract DealClient {
     }
 
     mapping(bytes32 => RequestIdx) public dealRequestIdx; // contract deal id -> deal index
-    /**
-     * @notice array to store all the deals request created
-     */
+
+    /// @notice array to store all the deals request created
     DealRequest[] public dealRequests;
 
     mapping(bytes => RequestId) public pieceRequests; // commP -> dealProposalID
@@ -139,6 +136,7 @@ contract DealClient {
     function getPieceStatus(bytes calldata cid) public view returns (Status) {
         return pieceStatus[cid];
     }
+    
 
     /**
      * @dev added by me
@@ -340,8 +338,6 @@ contract DealClient {
 
         return withdrawBalanceAmount;
     }
-
-    
 
     function receiveDataCap(bytes memory params) internal {
         require(
