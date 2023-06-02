@@ -1,0 +1,29 @@
+// 5880 = 49 hours
+// 1051200 = 1 year
+// 609170 = current epoch
+604800 + 5880 = 610680
+// 610680 + 1051200 = 1661880
+
+// 525600*2 = 1051200 1 year
+
+-------------------------
+yarn hardhat make-deal-proposal --contract 0x5e62D91208238D595E106fdDDdBE8edD113dbb75 --piece-cid baga6ea4seaqikjxwktqlkx5ueihlckvitnozxxks6j7rs2zijm5aol6duummwgy --piece-size 4194304 --verified-deal false --label bafybeieqiwq4kc5rrfkhsetrhlefqkqt2ojytmgrd537nl3na5ewvfe6r4 --car-size 3274104 --end-epoch 1661786 --start-epoch 610586 --storage-price-per-epoch 0 --provider-collateral 0 --client-collateral 0 --extra-params-version 1 --location-ref "https://data-depot.lighthouse.storage/api/download/download_car?fileId=e6dd9c78-659e-4d15-a4c1-cdb8bb0e2e7d.car" --skip-ipni-announce true --remove-unsealed-copy true
+
+Complete! Event Emitted. ProposalId is: 0x411567ffa7e6d95a7add8aa97e317443239c5abfa283f583bc7f3651e0391714
+
+yarn hardhat get-deal-status --contract 0x5e62D91208238D595E106fdDDdBE8edD113dbb75 --piece-cid baga6ea4seaqikjxwktqlkx5ueihlckvitnozxxks6j7rs2zijm5aol6duummwgy
+
+-------------------------------------
+yarn hardhat make-deal-proposal --contract 0x5e62D91208238D595E106fdDDdBE8edD113dbb75 --piece-cid baga6ea4seaqmuzympeude2uvgrjchycfi2znr35kp3dti7j6dzd7r7fs7oshqna --piece-size 536870912 --verified-deal false --label bafybeidesj5urlpzbwtylq53mmihzbfh2kjhvhn3bjg6klmjtkzjvf62ca --car-size 277953697 --end-epoch 1661880 --start-epoch 610680 --storage-price-per-epoch 0 --provider-collateral 0 --client-collateral 0 --extra-params-version 1 --location-ref "https://data-depot.lighthouse.storage/api/download/download_car?fileId=70e36b26-202b-46ba-8ac0-a51ada383447.car" --skip-ipni-announce true --remove-unsealed-copy true
+
+Complete! Event Emitted. ProposalId is: 0x3b2289c489da6803e2c9890ef58f23949201d6b1de39fcdc1ccdc06c6f0a639f
+
+yarn hardhat get-deal-status --contract 0x5e62D91208238D595E106fdDDdBE8edD113dbb75 --piece-cid baga6ea4seaqmuzympeude2uvgrjchycfi2znr35kp3dti7j6dzd7r7fs7oshqna
+
+---------------------------------------------------------------
+
+yarn hardhat make-deal-proposal --contract 0x5e62D91208238D595E106fdDDdBE8edD113dbb75 --piece-cid baga6ea4seaqowkjagpouuq7y2woxmzzsxv5kdi4sz37v5jx3timjimhr6ua26li --piece-size 4294967296 --verified-deal false --label bafybeigly3czarmxq3x7jwdvegr7blsuhuhmhnaaailsk4p7stq36ojnge --car-size 2510976608 --end-epoch 1666250 --start-epoch 615050 --storage-price-per-epoch 0 --provider-collateral 0 --client-collateral 0 --extra-params-version 1 --location-ref "https://data-depot.lighthouse.storage/api/download/download_car?fileId=f3f397db-37be-42ae-a366-f27fee0de2d2.car" --skip-ipni-announce true --remove-unsealed-copy true
+
+ProposalId is: 0xccd1d8eeabb63a1c4d2dee02a4ae09701532688c38299cf39ce2d69de3978bb2
+
+---------------------------------------------------------------
