@@ -1,10 +1,6 @@
 // 5880 = 49 hours
 // 1051200 = 1 year
 // 609170 = current epoch
-604800 + 5880 = 610680
-// 610680 + 1051200 = 1661880
-
-// 525600*2 = 1051200 1 year
 
 -------------------------
 yarn hardhat make-deal-proposal --contract 0x5e62D91208238D595E106fdDDdBE8edD113dbb75 --piece-cid baga6ea4seaqikjxwktqlkx5ueihlckvitnozxxks6j7rs2zijm5aol6duummwgy --piece-size 4194304 --verified-deal false --label bafybeieqiwq4kc5rrfkhsetrhlefqkqt2ojytmgrd537nl3na5ewvfe6r4 --car-size 3274104 --end-epoch 1661786 --start-epoch 610586 --storage-price-per-epoch 0 --provider-collateral 0 --client-collateral 0 --extra-params-version 1 --location-ref "https://data-depot.lighthouse.storage/api/download/download_car?fileId=e6dd9c78-659e-4d15-a4c1-cdb8bb0e2e7d.car" --skip-ipni-announce true --remove-unsealed-copy true
