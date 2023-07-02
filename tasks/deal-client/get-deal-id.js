@@ -11,8 +11,6 @@ task("get-deal-id", "Gets a deal Id from the piece cid")
         const networkId = network.name
         console.log("Getting deal status on network", networkId)
 
-        
-
         //create a new wallet instance
         const wallet = new ethers.Wallet(network.config.accounts[0], ethers.provider)
 
@@ -25,5 +23,8 @@ task("get-deal-id", "Gets a deal Id from the piece cid")
         //send a transaction to call makeDealProposal() method
         //transaction = await dealClient.getDealProposal(proposalID)
         let result = await dealClient.getDealId(cidHex)
-        console.log("The deal ID is:", result)
+        console.log("The deal ID Hex is:", result)
+
+        const resultNum = parseInt(result, 16)
+        console.log("The deal ID Number is:", resultNum)
     })
