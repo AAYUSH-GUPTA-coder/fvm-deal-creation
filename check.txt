@@ -1,0 +1,7 @@
+contract address : 0x43dC35291FED0855aF515F7c4e8c609B5bF1ad79
+
+yarn hardhat check-deal --contract 0x43dC35291FED0855aF515F7c4e8c609B5bF1ad79 --deal-id 561430
+
+
+// --- FEVM DEALS ---
+561430
